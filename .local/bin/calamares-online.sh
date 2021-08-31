@@ -6,7 +6,7 @@ FollowFile() {
     local xpos="$3"
     local ypos="$4"
 
-    xfce4-terminal -T "$term_title" --geometry=120x20+$xpos+$ypos -x tail -f "$tailfile" &
+    konsole -p "LocalTabTitleFormat=$term_title" -p "TerminalColumns=120" -p "TerminalRows=20" -geometry +$xpos+$ypos -e tail -f "$tailfile" &
 }
 
 catch_chrooted_pacman_log() {
@@ -29,7 +29,7 @@ catch_chrooted_pacman_log() {
 
 Main() {
     local progname="$(basename "$0")"
-    local log=/home/liveuser/endeavour-install.log
+    local log=/home/liveuser/cachy-install.log
     local mode=""
 
     case "$progname" in

@@ -3,7 +3,7 @@
 Main() {
     local mode=offline
     local progname="$(basename "$0")"
-    local log=/home/liveuser/endeavour-install.log
+    local log=/home/liveuser/cachy-install.log
 
     cat <<EOF > $log
 ########## $log by $progname
