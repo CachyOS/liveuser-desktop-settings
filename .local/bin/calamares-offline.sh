@@ -13,8 +13,8 @@ Main() {
 EOF
     RunInTerminal "tail -f $log" &
 
-    sudo cp /etc/calamares/settings_${mode}.conf /etc/calamares/settings.conf
-    pkexec calamares -style kvantum -c /etc/calamares/ -d >> $log
+    sudo cp /usr/share/calamares/settings_${mode}.conf /usr/share/calamares/settings.conf
+    pkexec calamares -style kvantum -c /usr/share/calamares/ -d >> $log
 }
 
 Main "$@"

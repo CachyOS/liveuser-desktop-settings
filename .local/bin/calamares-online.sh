@@ -6,7 +6,7 @@ FollowFile() {
     local xpos="$3"
     local ypos="$4"
 
-    konsole -p "LocalTabTitleFormat=$term_title" -p "TerminalColumns=120" -p "TerminalRows=20" -geometry +$xpos+$ypos -e tail -f "$tailfile" &
+    alacritty -t $term_title -e tail -f "$tailfile" &
 }
 
 catch_chrooted_pacman_log() {
@@ -45,8 +45,8 @@ Main() {
 EOF
     FollowFile "$log" "Install log" 20 20
 
-    sudo cp /etc/calamares/settings_${mode}.conf /etc/calamares/settings.conf
-    pkexec calamares -style kvantum -c /etc/calamares/ -d >> $log &
+    sudo cp /usr/share/calamares/settings_${mode}.conf /usr/share/calamares/settings.conf
+    pkexec calamares -style kvantum -c /usr/share/calamares/ -d >> $log &
 
     # comment out the following line if pacman.log is not needed:
     [ "$mode" = "online" ] && catch_chrooted_pacman_log
