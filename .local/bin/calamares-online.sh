@@ -29,7 +29,7 @@ catch_chrooted_pacman_log() {
 
 Main() {
     local progname="$(basename "$0")"
-    local log=/home/liveuser/cachy-install.log
+    local log=/home/cachyos/cachy-install.log
     local mode=""
 
     case "$progname" in
